@@ -2,7 +2,7 @@
 word2odio: a routine helper to english word learners, from a specific wordlist to a clip of audio. #mini_program #wechat
 
 
-###v1.0
+### v1.0
 Note: Not a mini pg, it's a python program rather.
 > main files:
 > - api.py
@@ -10,7 +10,7 @@ Note: Not a mini pg, it's a python program rather.
 > - w2o.py(main)
 > - json_formatter.py
 
-####Directory general structure:
+#### Directory general structure:
 ```shell
 .
 ├── ELC
