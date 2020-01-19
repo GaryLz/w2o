@@ -15,26 +15,25 @@ class youdao():
 		type = 0：美音
 		type = 1：英音
 
-		判断当前目录下是否存在两个语音库的目录
+		判断当前目录下是否存在语音库的目录
 		如果不存在，创建
 		'''
 		self._type = type  # 发音方式
 
 		# 文件根目录
-		self._dirRoot = os.path.dirname(os.path.abspath(__file__)) # 当前py文件所在的dir绝对地址
+		self._dirRoot = os.getcwd() # 当前py文件所在的dir绝对地址
 		if 0 == self._type:
 			self._dirSpeech = os.path.join(self._dirRoot, 'Speech_US')  # 美音库
+			# 判断是否存在美音库--待修改--
+			if not os.path.exists('Speech_US'):
+				# 不存在，就创建
+				os.makedirs('Speech_US')
 		else:
 			self._dirSpeech = os.path.join(self._dirRoot, 'Speech_EN')  # 英音库
-
-		# 判断是否存在美音库
-		if not os.path.exists('Speech_US'):
-			# 不存在，就创建
-			os.makedirs('Speech_US')
-		# 判断是否存在英音库
-		if not os.path.exists('Speech_EN'):
-			# 不存在，就创建
-			os.makedirs('Speech_EN')
+			# 判断是否存在英音库
+			if not os.path.exists('Speech_EN'):
+				# 不存在，就创建
+				os.makedirs('Speech_EN')
 
 	def setAccent(self, type=0):
 		'''

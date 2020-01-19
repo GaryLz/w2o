@@ -24,4 +24,3 @@ class wordlist():
 			self._wordnum += 1
 			print('%s添加成功，音频文件地址:%s' % (word, self._wordlist[word]))
 			
-
