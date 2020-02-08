@@ -1,6 +1,7 @@
 # w2o
 word2odio: a routine helper to english word learners, from a specific wordlist to a clip of audio. #mini_program #wechat
 
+[TOC]
 
 ### v1.0
 Note: Not a mini pg, it's a python program rather.
@@ -13,39 +14,9 @@ Note: Not a mini pg, it's a python program rather.
 #### Directory general structure:
 ```shell
 .
-├── ELC
-│   ├── ELC.json
-│   └── ELC.mp3
 ├── LICENSE
 ├── README.md
-├── Speech_US
-│   ├── amazing.mp3
-│   ├── atheist.mp3
-│   ├── awesome.mp3
-│   ├── coastal.mp3
-│   ├── cool.mp3
-│   ├── coral.mp3
-│   ├── cruel.mp3
-│   ├── exam.mp3
-│   ├── excellent.mp3
-│   ├── extraordinary.mp3
-│   ├── fabulous.mp3
-│   ├── faculty.mp3
-│   ├── fantastic.mp3
-│   ├── good.mp3
-│   ├── gorgeous.mp3
-│   ├── great.mp3
-│   ├── naval.mp3
-│   ├── nonsense.mp3
-│   ├── one.mp3
-│   ├── pathetic.mp3
-│   ├── quiz.mp3
-│   ├── sad.mp3
-│   ├── stunning.mp3
-│   ├── submarine.mp3
-│   ├── test.mp3
-│   └── tutourial.mp3
-├── pycache
+├── __pycache__
 │   ├── api.cpython-37.pyc
 │   ├── json_formatter.cpython-37.pyc
 │   └── wordlist.cpython-37.pyc
@@ -55,7 +26,14 @@ Note: Not a mini pg, it's a python program rather.
 ├── w2o.py
 └── wordlist.py
 
-3 directories, 38 files
+1 directory, 10 files
+
+'generating EXAMPLE_DIR ...'
+CWD = "~/Documents/daily-vocab/"
+├── ELC (DIR_EXAMPLE)
+│   ├── ELC.json
+│   └── ELC.mp3
+│   └── ELC.txt
 
 ```
 
