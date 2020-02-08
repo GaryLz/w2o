@@ -24,3 +24,14 @@ class wordlist():
 			self._wordnum += 1
 			print('%s添加成功，音频文件地址:%s' % (word, self._wordlist[word]))
 			
+	def dele(self, word=''):
+		word = word.lower()
+		if not word:  #by default
+			del_word = self._wordlist.popitem()[0] #remove the last item
+		else:
+			del_word = word #remove item by key
+			self._wordlist.pop(del_word)
+		print('%s删除成功' % del_word)
+				
+				
+			

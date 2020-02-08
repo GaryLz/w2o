@@ -9,7 +9,7 @@ import urllib.request
 
 
 class youdao():
-	def __init__(self, type):
+	def __init__(self, type=0):
 		'''
 		调用youdao API
 		type = 0：美音
@@ -21,7 +21,11 @@ class youdao():
 		self._type = type  # 发音方式
 
 		# 文件根目录
-		self._dirRoot = os.getcwd() # 当前py文件所在的dir绝对地址
+		#self._dirRoot = os.getcwd() # 当前py文件所在的dir绝对地址
+		self._dirRoot = "/Users/gary/Documents/daily-vocab"
+		os.chdir(self._dirRoot) #cd到daily-vocab，改变cwd
+		#print(os.getcwd())
+
 		if 0 == self._type:
 			self._dirSpeech = os.path.join(self._dirRoot, 'Speech_US')  # 美音库
 			# 判断是否存在美音库--待修改--

@@ -11,7 +11,7 @@ class w2o():
 	--操作层--
 	根据given name
 	生成related wordlist_dir以及audio_dir（API）
-	最后生成长wordlist_audio.mp3
+	最后生成wordlist_audio.mp3
 	"""
 	def __init__(self, name, type=0):
 		self._wl = wordlist(name)
@@ -23,13 +23,33 @@ class w2o():
 		
 	def add(self, word):
 		self._wl.add(word)
+		
+	def dele(self, word):
+		self._wl.dele(word)
 	
-	def checkwl(self):
+	def printwl(self):
+		"""
+		print wordlist to console
+		"""
 		loop = 1
 		for word in self._wl._wordlist.keys():
 			print('%d.%s' %(loop, word))
 			loop += 1
 			
+	def wri2txt(self):
+		"""
+		写入txt,记录wordlist
+		"""
+		fileName = self._wl._listName + '.txt'
+		txtFile = open(fileName, 'w')
+		loop = 1
+		for word in self._wl._wordlist.keys():
+			txtFile.write(str(loop)+ '. ' + word)
+			txtFile.write('\n')
+			loop += 1
+		txtFile.close()
+		print("写入txt文件成功,%s" % fileName)	
+						
 	def wri2json(self):
 		jsnObject = json.dumps(self._wl._wordlist)
 		fileName = self._wl._listName + '.json'
@@ -76,15 +96,20 @@ def main():
 		os.system('clear')
 		print("any word? If not, pleast type # to exit")
 		while True:
-			wl.checkwl()
+			wl.printwl()
 			word = input()
 			if '#' == word:
 				break
-			wl.add(word)
+			elif '-' == word[0]:
+				wl.dele(word[1:])
+			else:
+				wl.add(word)
 		os.system('clear')
-		print("next follows write2json, merge2mp3 Func...")
+		print("next follows write2txt, write2json, merge2mp3 Func:")
+		wl.wri2txt()
 		wl.wri2json()
 		wl.merge2mp3()
+		print('\n')
 		main()
 	elif chosen == '0':
 		return None
