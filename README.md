@@ -50,5 +50,12 @@ pip3 install pydub
 brew install ffmpeg libavcodec-extra
 ```
 
+---
+dev_log:
 
+## to-do:
+- bugs:
+    - shared data problem of the same wordlist in loops
+- features:
+    - audio ouput based on files, without inputting words on console(supported format: .txt)
 
