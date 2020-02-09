@@ -5,7 +5,12 @@ word2odio: a routine helper to english word learners, from a specific wordlist t
 
 ### v1.0
 Note: Not a mini pg, it's a python program rather.
-> main files:
+
+#### about
+dirs:
+- daily-vocab(dest_dir: audio files)
+- w2o(tar_dir: .py files):
+> main files
 > - api.py
 > - wordlist.py
 > - w2o.py(main)
@@ -13,6 +18,7 @@ Note: Not a mini pg, it's a python program rather.
 
 #### Directory general structure:
 ```shell
+1. w2o:
 .
 ├── LICENSE
 ├── README.md
@@ -28,8 +34,10 @@ Note: Not a mini pg, it's a python program rather.
 
 1 directory, 10 files
 
+
+2. daily-vocab:
 'generating EXAMPLE_DIR ...'
-CWD = "~/Documents/daily-vocab/"
+.
 ├── ELC (DIR_EXAMPLE)
 │   ├── ELC.json
 │   └── ELC.mp3
@@ -40,7 +48,9 @@ CWD = "~/Documents/daily-vocab/"
 
 
 #### dependencies
->In my case, env: Mac-MacOS Majave 10.14.6 (18G103), Homebrew
+>In my case, env: Mac-MacOS Majave 10.14.6 (18G103), Homebrew.
+
+NEEDED to be installed successfully before the program's running.
 - pydub.AudioSegment
 ```shell
 pip3 install pydub
@@ -51,7 +61,7 @@ brew install ffmpeg libavcodec-extra
 ```
 
 ---
-dev_log:
+`dev_log`
 
 ## to-do:
 - bugs:
