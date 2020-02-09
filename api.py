@@ -9,6 +9,9 @@ import urllib.request
 
 
 class youdao():
+	'''
+	--API层--
+	'''
 	def __init__(self, type=0):
 		'''
 		调用youdao API
@@ -21,8 +24,8 @@ class youdao():
 		self._type = type  # 发音方式
 
 		# 文件根目录
-		#self._dirRoot = os.getcwd() # 当前py文件所在的dir绝对地址
-		self._dirRoot = "/Users/gary/Documents/daily-vocab"
+		self._dirRoot = os.path.join(os.getcwd(), '..', 'daily-vocab' )
+		#self._dirRoot = "/Users/gary/Documents/daily-vocab"
 		os.chdir(self._dirRoot) #cd到daily-vocab，改变cwd
 		#print(os.getcwd())
 

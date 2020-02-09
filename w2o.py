@@ -89,7 +89,7 @@ def main():
 	print("0. exit")			
 	print("==============================")
 	chosen = input("select:")
-	os.system('clear')
+	#os.system('clear')
 	if chosen == '1':
 		name = input("wordlist-name:\n")
 		wl = w2o(name)
@@ -104,12 +104,12 @@ def main():
 				wl.dele(word[1:])
 			else:
 				wl.add(word)
-		os.system('clear')
-		print("next follows write2txt, write2json, merge2mp3 Func:")
+		#os.system('clear')
+		print("next follows write2txt, write2json, merge2mp3 Funcs:")
 		wl.wri2txt()
 		wl.wri2json()
 		wl.merge2mp3()
-		print('\n')
+		os.chdir('..')
 		main()
 	elif chosen == '0':
 		return None
