@@ -66,6 +66,7 @@ brew install ffmpeg libavcodec-extra
 ## to-do:
 - bugs:
     - shared data problem of the same wordlist in loops
+    - program goes breakdown if no audio of a "maybe-wrong" word available in *youdao*.com
 - features:
     - audio ouput based on files, without inputting words on console(supported format: .txt)
 
