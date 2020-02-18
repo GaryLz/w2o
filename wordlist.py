@@ -22,10 +22,12 @@ class wordlist():
 		if not word:  #or '' == word
 			print('添加失败，当前输入为空');
 		else:
-			self._audioPath = self.yd.dl(word) # 下载音频，返回音频地址
-			self._wordlist[word] = self._audioPath  # 添加word
-			self._wordnum += 1
-			print('%s添加成功，音频文件地址:%s' % (word, self._wordlist[word]))
+			audioPath = self.yd.dl(word)
+			if audioPath != -1:
+				self._audioPath = audioPath # 下载音频，返回音频地址
+				self._wordlist[word] = self._audioPath  # 添加word
+				self._wordnum += 1
+				print('%s添加成功，音频文件地址:%s' % (word, self._wordlist[word]))
 			
 	def dele(self, word=''):
 		word = word.lower()

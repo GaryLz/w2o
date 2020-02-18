@@ -68,9 +68,11 @@ brew install ffmpeg libavcodec-extra
 
     - [x] shared data problem of the same wordlist in loops 
 
-      > R: class wordlist() cannot be initialized as empty in loops.
+      > R: class wordlist() cannot be initialized as empty in loops. #assign-as-empty-directly 
 
-    - [ ] program goes breakdown if no audio of a "maybe-wrong" word available in *youdao*.com
+    - [x] program goes breakdown if no audio of a "maybe-wrong" word available in *youdao*.com
+
+      > R: program went crash when getting an invalid url. #try-except
 
 - features:
 

@@ -74,8 +74,12 @@ class youdao():
 			# 调用下载程序，下载到目标文件夹
 			# print('不存在 %s.mp3 文件\n将URL:\n' % word, self._url, '\n下载到:\n', self._filePath)
 			# 下载到目标地址
-			urllib.request.urlretrieve(self._url, filename=self._filePath)
-			print('%s.mp3 下载完成' % self._word)
+			try:
+				urllib.request.urlretrieve(self._url, filename=self._filePath)
+				print('%s.mp3 下载完成' % self._word)
+			except:
+				print("查无此单词，请重新输入")
+				return -1
 		else:
 			print('已经存在 %s.mp3, 不需要下载' % self._word)
 
