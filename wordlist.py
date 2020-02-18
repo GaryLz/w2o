@@ -6,10 +6,13 @@ class wordlist():
 	name
 	wordlist = {'word':'audioPath'}
 	'''
-	def __init__(self, name, wordlist={}, type=0):
+	def __init__(self, name, type=0):
 		self._listName = name  # 单词表名
-		self._wordlist = wordlist # 默认：字典为空
+		self._wordlist = {} # 默认：字典为空
+		#关于worlist()初始化：
+		#不能通过wordlist={}作为输入参量，初始化
 		self._wordnum = len(self._wordlist)
+		#print("Initialized...wordnum:%d" % self._wordnum)
 		self._type = type # 默认：美音
 		self.yd = youdao(type)
 		self._dirSpeech = self.yd._dirSpeech # 音频文件存放dir地址

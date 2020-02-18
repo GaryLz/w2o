@@ -110,7 +110,7 @@ def main():
 		wl.wri2json()
 		wl.merge2mp3()
 		os.chdir('..')
-		main()
+		main() #recursive
 	elif chosen == '0':
 		return None
 	else:
