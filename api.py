@@ -78,7 +78,7 @@ class youdao():
 				urllib.request.urlretrieve(self._url, filename=self._filePath)
 				print('%s.mp3 下载完成' % self._word)
 			except:
-				print("查无此单词，请重新输入")
+				print("查无此单词%s，请重新输入" % self._word)
 				return -1
 		else:
 			print('已经存在 %s.mp3, 不需要下载' % self._word)

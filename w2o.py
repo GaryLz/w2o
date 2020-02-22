@@ -80,41 +80,99 @@ class w2o():
 			mp3_merged += silence_between
 		exportPath = os.getcwd()+os.sep+self._wl._listName+'.mp3'
 		mp3_merged.export(exportPath, format='mp3')
-		print("合并mp3成功，所在地址%s" % exportPath)	
+		print("合并mp3成功，所在地址%s" % exportPath)
+		
 	
 		
 def main():
-	print("======here is w2o program=====")		
-	print("1. new a wordlist ")
-	print("0. exit")			
-	print("==============================")
-	chosen = input("select:")
-	#os.system('clear')
-	if chosen == '1':
-		name = input("wordlist-name:\n")
-		wl = w2o(name)
-		os.system('clear')
-		print("any word? If not, pleast type # to exit")
-		while True:
-			wl.printwl()
-			word = input()
-			if '#' == word:
-				break
-			elif '-' == word[0]:
-				wl.dele(word[1:])
-			else:
-				wl.add(word)
+	while True:
+		#print(os.getcwd())
+		print("======here is w2o program=====")		
+		print("1. by console manually")
+		print("2. from .txt file")
+		print("0. exit")			
+		print("==============================")
+		chosen = input("select:")
 		#os.system('clear')
-		print("next follows write2txt, write2json, merge2mp3 Funcs:")
-		wl.wri2txt()
-		wl.wri2json()
-		wl.merge2mp3()
-		os.chdir('..')
-		main() #recursive
-	elif chosen == '0':
-		return None
-	else:
-		print('input_error')			
-				
+		if chosen == '1':
+			byConsole()
+			
+		elif chosen == '2':
+			generatefrmtxt()
+			
+		elif chosen == '0':
+			return None
+		else:
+			print('input_error')			
+		print("\n")
+		
+def byConsole():
+	"""
+	generate a wordlist manually on console:
+		type '#' to end
+	""" 
+	name = input("wordlist-name:\n")
+	wl = w2o(name)
+	#os.system('clear')
+	print("any word? If not, pleast type # to exit")
+	while True:
+		wl.printwl()
+		word = input()
+		if '#' == word:
+			break
+		elif '-' == word[0]:
+			wl.dele(word[1:])
+		else:
+			wl.add(word)
+	#os.system('clear')
+	print("next follows write2txt, write2json, merge2mp3 Funcs:")
+	wl.wri2txt()
+	wl.wri2json()
+	wl.merge2mp3()
+	os.chdir('..') # back to the previous dir
+	print("单词表{}生成成功".format(wl._wl._listName))
+		
+def generatefrmtxt():
+	"""
+	from .txt file 
+	generate audio files.
+	Rules:
+		1. # wordlist_name: for file_name
+		2. each word for one line
+		3. type '#' to end in the last line
+	"""
+	# 判断当前cwd是否在cwd,防止两种模式交替使用报错（不同cwds）
+	base = os.path.basename(os.getcwd())
+	if base != 'w2o':
+		os.chdir('../w2o')
+	with open("./wordlist_input.txt", 'r', encoding = 'UTF-8') as f:
+		lines = f.readlines()
+	f.close()
+	success = [] #记录-成功生成的wordlist_names
+	for line in lines:
+		striped = line.strip() #去除字串符头尾特殊符号
+		#print(repr(striped))
+		if striped == '':
+			#'newline'
+			continue
+		elif striped[0] == '#':
+			if len(striped) > 1:
+				#'title'
+				name = striped[2:].replace(' ', '-')
+				wl = w2o(name)
+			else:
+				#'endline'
+				wl.wri2txt()
+				wl.wri2json()
+				wl.merge2mp3()
+				success.append(wl._wl._listName)
+				os.chdir('..') # back to the previous dir
+		else:
+			#'word'
+			word = striped
+			wl.add(word)
+		
+	print("共有{}个wordlists生成成功: {} ".format(len(success), success))
+						
 if __name__ == "__main__":
 	main()

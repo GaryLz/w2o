@@ -30,9 +30,10 @@ dirs:
 ├── foo.py
 ├── json_formatter.py
 ├── w2o.py
-└── wordlist.py
+├── wordlist.py
+└── wordlist_input.txt
 
-1 directory, 10 files
+1 directory, 11 files
 
 
 2. daily-vocab:
@@ -76,6 +77,8 @@ brew install ffmpeg libavcodec-extra
 
 - features:
 
-   - [ ]  audio ouput based on files, without inputting words on console(supported format: .txt)
+   - [x] audio ouput based on files, without inputting words on console(supported format: .txt)
+   
+     > input_files: ./wordlist_input.txt
 
 

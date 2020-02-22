@@ -1,0 +1,12 @@
+# ch2_dctors
+internist
+gynecologist
+obstertrician
+pediatrician
+dermatologist
+ophthalmologist
+orthopedist
+neurologist
+psychiatrist
+cardiologist
+#
